@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../views/partials/header.ejs %>
+    <title>Profile | Geneaology Connection</title>
+  </head>
+  <body>
+    <%- include('../views/partials/navbar.ejs', {user: user}) %>
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="text-success"><%= user.name.first + " " + user.name.last %></h1>
+      </div>
+    </div>
+    <div class="container">
+      <h4 class="text-danger"><%= message %></h4>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h4 class="panel-title">Account Info</h4>
+        </div>
+        <div class="panel-body">
+          <p><strong>Name: </strong><%= user.name.first + " " + user.name.last %></p>
+          <p><strong>Email Address: </strong><%= user.email %></p>
+          <p><strong>Username: </strong><%= user.local.username %></p>
+          <p><strong>Account Type: </strong><%= user.role %></p>
+        </div>
+      </div>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h4 class="panel-title">23andMe</h4>
+        </div>
+        <div class="panel-body">
+          <% if(user.TwentyThreeandMe.accessToken) { %>
+            <p><strong>accessToken:</strong> <%= user.TwentyThreeandMe.accessToken %></p>
+            <p><strong>refreshToken:</strong> <%= user.TwentyThreeandMe.refreshToken %></p>
+            <p><strong>expires:</strong> <%= user.TwentyThreeandMe.expires %></p>
+            <a href="/auth/23andme/disconnect/" class="btn btn-danger">Disconnect</a>
+          <% } else { %>
+            <a href="/auth/23andme/"><img src="https://api.23andme.com/res/img/connect-button-example.5fca4ae219ac.png" class="img-responsive"></a>
+          <% } %>
+        </div>
+      </div>
+      <button class="btn-link" onclick="$('.json').toggleClass('hidden')">Toggle Raw Data</button>
+      <div class="json hidden">
+        <pre><code><%= JSON.stringify(user, undefined, 2) %></code></pre>
+      </div>
+    </div>
+  </body>
+  <% include ../views/partials/scripts.ejs %>
+</html>

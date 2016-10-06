@@ -1,0 +1,29 @@
+{
+  "name": "23andme",
+  "version": "1.0.0",
+  "description": "A test of the 23andme API",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "keywords": [
+    "23andme"
+  ],
+  "author": "Noah Scholfield",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "body-parser": "^1.15.2",
+    "connect-flash": "^0.1.1",
+    "connect-redis": "^3.1.0",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "express-session": "^1.14.1",
+    "mongoose": "^4.6.3",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-oauth2": "^1.3.0",
+    "passport-oauth2-refresh": "^1.0.0",
+    "request": "^2.75.0"
+  }
+}

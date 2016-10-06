@@ -1,0 +1,44 @@
+<style>
+  body {
+    padding-top: 3em;
+  }
+</style>
+<nav class="navbar navbar-default navbar-fixed-top" id="nav">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Genealogy Connection</a>
+      </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Forum <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:4567" target="_blank">Forum Home</a></li>
+            <li><a href="http://localhost:4567/category/1/announcements" target="_blank">Announcements</a></li>
+            <li><a href="http://localhost:4567/category/2/general-discussion" target="_blank">General Discussion</a></li>
+            <li class="divider"></li>
+            <li><a href="http://localhost:4567/category/5/african-american-heritage" target="_blank">African American</a></li>
+            <li><a href="http://localhost:4567/category/6/how-do-i-dna" target="_blank">How do I DNA?</a></li>
+          </ul>
+        </li>
+        <li id="resources"><a href="/resources/">Resources</a></li>
+        <li id="comparison"><a href="/premium/">Premium</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if(!user) { %>
+          <li><a href="/register/">Register</a></li>
+          <li><a href="/login/">Login</a></li>
+        <% } else { %>
+          <li><a href="/profile/"><%= user.local.username %></a></li>
+          <li><a href="/logout/">Logout</a></li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>

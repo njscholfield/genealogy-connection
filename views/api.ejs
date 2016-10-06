@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../views/partials/header.ejs %>
+    <title>API Response | Geneaology Connection</title>
+  </head>
+  <body>
+    <%- include('../views/partials/navbar.ejs', {user: user}) %>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>API Response: <code><%= endpoint %></code></h1>
+      </div>
+    </div>
+    <div class="container">
+      <pre><code><%= JSON.stringify(data, undefined, 2) %></code></pre>
+    </div>
+  </body>
+  <% include ../views/partials/scripts.ejs %>
+</html>

@@ -1,0 +1,90 @@
+html, body {
+  height: 100%;
+  padding-top: 0 !important;
+}
+
+.wrapper {
+  background: url(https://hd.unsplash.com/photo-1446776858070-70c3d5ed6758);
+  background-size: cover;
+  height: inherit;
+	margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-transparent {
+  background-color: transparent;
+}
+
+.navbar-transparent .navbar-nav > li > a,
+.navbar-transparent .navbar-header > a {
+  color: white;
+}
+
+.navbar-transparent .navbar-nav > li > a:hover,
+.navbar-transparent .navbar-nav > li > a:focus {
+  background-color: transparent;
+  color: #999999;
+}
+
+.centered-content {
+  background-color: rgba(22, 22, 22, 0.6);
+  text-align: center;
+  color: white;
+  margin-top: 1em;
+  padding-top: 0;
+  padding-bottom: 1em;
+  width: 100%;
+}
+
+.collapse.in {
+  background-color: rgba(22, 22, 22, 0.6);
+}
+
+.navbar-transparent .dropdown-menu {
+  background-color: rgba(22, 22, 22, 0.8);
+}
+
+.navbar-transparent .dropdown-menu > li > a {
+  color: white;
+}
+
+.navbar-transparent .dropdown-menu > li > a:hover,
+.navbar-transparent .dropdown-menu > li > a:focus {
+  background-color: inherit;
+  color: #999999;
+}
+
+.navbar-transparent .navbar-nav>.open>a,
+.navbar-transparent .navbar-nav>.open>a:hover,
+.navbar-transparent .navbar-nav>.open>a:focus {
+  background-color: rgba(22, 22, 22, 0.8);
+}
+
+.info {
+  background-color: #43ac6a;
+  width: 100%;
+  color: white;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+footer {
+  background-color: #262626;
+  color: white;
+  padding-top: 2em;
+}
+
+footer ul {
+  list-style-type: none;
+  padding-left: 0.2em;
+}
+
+footer ul a {
+  color: white;
+  font-weight: 300;
+}
+footer ul a:hover {
+  color: white;
+  text-decoration: underline;
+}

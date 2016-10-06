@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../views/partials/header.ejs %>
+    <title>Welcome | Geneaology Connection</title>
+    <link href="/css/home.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="wrapper">
+      <%- include('../views/partials/navbar.ejs', {user: user}) %>
+      <div class="centered-content jumbotron">
+        <div class="container">
+          <h1>Genealogy Connection</h1>
+          <p>A platform that connects you to your history through experts.</p>
+        </div>
+      </div>
+    </div>
+    <div class="info">
+      <div class="container">
+        <h2>Learn more about us!</h2>
+        <ul>
+          <li>We connect you to the experts</li>
+          <li>Find out about the helpful websites you never knew existed</li>
+        </ul>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <strong><p>Get to know us</p></strong>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-6">
+            <strong><p>Let us help you<p></strong>
+            <ul>
+              <li><a href="#">Your Profile</a></li>
+              <li><a href="#">Your Tests</a></li>
+              <li><a href="/premium/">Premium Members</a></li>
+              <li><a href="#">Help</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <% include ../views/partials/scripts.ejs %>
+  <script>
+    var myNav = document.getElementById('nav');
+    myNav.classList.remove("navbar-default");
+    myNav.classList.add("navbar-transparent");
+    window.onscroll = function () {
+      if (document.body.scrollTop >= 200 ) {
+          myNav.classList.add("navbar-default");
+          myNav.classList.remove("navbar-transparent");
+      }
+      else {
+          myNav.classList.remove("navbar-default");
+          myNav.classList.add("navbar-transparent");
+      }
+    };
+  </script>
+</html>

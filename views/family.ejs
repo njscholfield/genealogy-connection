@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../views/partials/header.ejs %>
+    <title>Family Tree | Geneaology Connection</title>
+  </head>
+  <body>
+    <%- include('../views/partials/navbar.ejs', {user: user}) %>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Family Tree</h1>
+      </div>
+    </div>
+    <div class="container">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <tr class="info">
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Sex</th>
+            <th>Still Alive</th>
+          </tr>
+          <% data[0].members.forEach(function(person) { %>
+            <tr>
+              <td><%= person.last_name %></td>
+              <td><%= person.first_name %></td>
+              <% if(person.sex === 'm') { %>
+                <td>Male</td>
+              <% } else { %>
+                <td>Female</td>
+              <% } %>
+              <% if(person.deceased) { %>
+                <td>No</td>
+              <% } else { %>
+                <td class="text-success">Yes</td>
+              <% } %>
+            </tr>
+          <% }); %>
+        </table>
+      </div>
+      <button class="btn-link" onclick="$('.json').toggleClass('hidden');">Toggle Raw Data</button>
+      <div class="json hidden">
+        <pre><code><%= JSON.stringify(data, undefined, 2) %></code></pre>
+      </div>
+    </div>
+  </body>
+  <% include ../views/partials/scripts.ejs %>
+</html>
