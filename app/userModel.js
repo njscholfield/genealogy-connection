@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt');
 
-mongoose.connect('mongodb://localhost/23andme', function(err, res) {
+mongoose.connect(process.env.MONGODB_URI, function(err, res) {
   if(err) {
     console.log('ERROR connecting to mongodb://localhost/23andme: ' + err);
   } else {

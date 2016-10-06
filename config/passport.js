@@ -73,9 +73,9 @@ module.exports = function(passport, refresh) {
   var TTandMeStrategy = new OAuth2Strategy({
       authorizationURL: 'https://api.23andme.com/authorize/',
       tokenURL: 'https://api.23andme.com/token/',
-      clientID: '4d55d599064aeb65b1f9b548360709af',
-      clientSecret: '9742a523d49c67d5fb0bad3c7bf7e12a',
-      callbackURL: 'http://localhost:5000/auth/23andme/callback/'
+      clientID: process.env.TTCLIENT_ID,
+      clientSecret: process.env.TTCLIENT_SECRET,
+      callbackURL: 'https://gc.noahscholfield.com/auth/23andme/callback/'
     },
     function(accessToken, refreshToken, profile, done) {
       expiration = new Date();

@@ -10,7 +10,8 @@ var app = express();
 require('./config/passport.js')(passport, refresh);
 var TTandMe = require('./app/TTandMe.js');
 
-app.use(session({ store: new RedisStore({url: 'redis://127.0.0.1:6379/2'}), secret: 'thisisasecret', resave: true, saveUninitialized: true }));
+app.set('port', process.env.PORT);
+app.use(session({ store: new RedisStore({url: process.env.REDIS_URL}), secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static('public'));
@@ -20,6 +21,6 @@ app.set('view engine', 'ejs');
 
 require('./app/routes.js')(app, passport, TTandMe);
 
-app.listen(5000, function() {
-  console.log('Node app running of port 5000');
+app.listen(app.get('port'), function() {
+  console.log('Node app running of port ' + app.get('port'));
 });
