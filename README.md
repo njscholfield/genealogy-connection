@@ -2,7 +2,7 @@
 
 ### Description
 
-This is a demo website that I made for a class where we had to design a collaborative online platform to genetic genealogy.
+This is a demo website that I made for a class where we had to design a collaborative online platform for genetic genealogy.
 
 ### Technologies Used
   - [Node.js](https://nodejs.org)
