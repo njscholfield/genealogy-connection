@@ -37,7 +37,7 @@ html, body {
   width: 100%;
 }
 
-.collapse.in {
+.navbar-transparent .collapse.in {
   background-color: rgba(22, 22, 22, 0.6);
 }
 
