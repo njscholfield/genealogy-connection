@@ -1,13 +1,14 @@
 {
-  "name": "23andme",
+  "name": "genealogy-connection",
   "version": "1.0.0",
-  "description": "A test of the 23andme API",
-  "main": "server.js",
+  "description": "A demo website for a class project",
+  "main": "index.js",
   "scripts": {
-    "test": "node server.js"
+    "start": "node index.js"
   },
   "keywords": [
-    "23andme"
+    "23andme",
+    "genealogy"
   ],
   "author": "Noah Scholfield",
   "license": "ISC",
