@@ -39,14 +39,14 @@ module.exports = function(app, passport, TTandMe) {
   });
 
   app.get('/auth/23andme/disconnect/', isLoggedIn, function(req, res) {
-    req.user.update({$set: {'TwentyThreeandMe.accessToken': "", 'TwentyThreeandMe.refreshToken': "", 'TwentyThreeandMe.expires': undefined}}, function(err, user) {
+    req.user.update({$set: {'TwentyThreeandMe.accessToken': '', 'TwentyThreeandMe.refreshToken': '', 'TwentyThreeandMe.expires': undefined}}, function(err) {
       if(err) {
-        console.log("Error disconnecting 23andMe: " + err)
+        console.log('Error disconnecting 23andMe: ' + err);
         req.flash('profileError', 'Error disconnecting 23andMe');
       }
       res.redirect('/profile/');
     });
-  })
+  });
 
   app.get('/profile/', isLoggedIn, function(req, res) {
     res.render('profile', {user: req.user, message: req.flash('profileError')});
@@ -62,11 +62,11 @@ module.exports = function(app, passport, TTandMe) {
   });
 
   function isLoggedIn(req, res, next) {
-  	if (req.isAuthenticated()) {
+    if (req.isAuthenticated()) {
       return next();
     }
     req.flash('loginMessage', 'You must be logged in to view this page!');
-  	res.redirect('/login/');
+    res.redirect('/login/');
   }
 
   function connected23andMe(req, res, next) {
@@ -79,4 +79,4 @@ module.exports = function(app, passport, TTandMe) {
     });
   }
 
-}
+};

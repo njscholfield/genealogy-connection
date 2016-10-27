@@ -15,7 +15,7 @@ var checkOrRenewToken = function(user, next) {
         } else {
           var expiration = new Date();
           expiration.setDate(expiration.getDate() + 1);
-          user.update({$set: {"TwentyThreeandMe.accessToken": accessToken, "TwentyThreeandMe.refreshToken": refreshToken, "TwentyThreeandMe.expires": expiration}}, function(err, user) {
+          user.update({$set: {'TwentyThreeandMe.accessToken': accessToken, 'TwentyThreeandMe.refreshToken': refreshToken, 'TwentyThreeandMe.expires': expiration}}, function(err) {
             if(err) {
               console.log('Error setting new accessToken and refreshToken: ' + err);
             } else {
@@ -23,15 +23,15 @@ var checkOrRenewToken = function(user, next) {
             }
           });
         }
-    });
+      });
   }
-}
+};
 
 exports.getUser = function(req, res, endpoint) {
   var callback = function() {
     request.get(apiURL + endpoint, {'auth': {'bearer': req.user.TwentyThreeandMe.accessToken}}, function(err, response, body) {
       if(err) {
-        console.log("Error getting " + endpoint + ": " + err);
+        console.log('Error getting ' + endpoint + ': ' + err);
         res.status(500);
       } else {
         body = JSON.parse(body);
@@ -45,4 +45,4 @@ exports.getUser = function(req, res, endpoint) {
   };
 
   checkOrRenewToken(req.user, callback);
-}
+};

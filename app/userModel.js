@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt');
 
-mongoose.connect(process.env.MONGODB_URI, function(err, res) {
+mongoose.connect(process.env.MONGODB_URI, function(err) {
   if(err) {
     console.log('ERROR connecting to mongodb://localhost/23andme: ' + err);
   } else {
@@ -10,29 +10,29 @@ mongoose.connect(process.env.MONGODB_URI, function(err, res) {
 });
 
 var userSchema = mongoose.Schema({
-    name: {
-      first: {type: String, required: true},
-      last: {type: String, required: true}
-    },
-    email: {type: String, required: true, index: {unique: true}},
-    role: {type: String, default: "user"},
-    local: {
-      username: {type: String, required: true, index: {unique: true}},
-      password: {type: String, required: true},
-    },
-    TwentyThreeandMe: {
-      accessToken: {type: String},
-      refreshToken: {type: String},
-      expires: {type: Date}
-    }
+  name: {
+    first: {type: String, required: true},
+    last: {type: String, required: true}
+  },
+  email: {type: String, required: true, index: {unique: true}},
+  role: {type: String, default: 'user'},
+  local: {
+    username: {type: String, required: true, index: {unique: true}},
+    password: {type: String, required: true},
+  },
+  TwentyThreeandMe: {
+    accessToken: {type: String},
+    refreshToken: {type: String},
+    expires: {type: Date}
+  }
 });
 
 userSchema.methods.generateHash = function(password) {
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(12), null);
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(12), null);
 };
 
 userSchema.methods.validPassword = function(password) {
-    return bcrypt.compareSync(password, this.local.password);
+  return bcrypt.compareSync(password, this.local.password);
 };
 
 module.exports = mongoose.model('User', userSchema);
