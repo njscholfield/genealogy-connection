@@ -1,13 +1,17 @@
+---
+title: Home
+permalink: /
+---
 <!DOCTYPE html>
 <html>
   <head>
-    <% include ../views/partials/header.ejs %>
+    {% include header.html %}
     <title>Welcome | Geneaology Connection</title>
     <link href="/css/home.css" rel="stylesheet">
   </head>
   <body>
     <div class="wrapper">
-      <%- include('../views/partials/navbar.ejs', {user: user}) %>
+      {% include navbar.html %}
       <div class="centered-content jumbotron">
         <div class="container">
           <h1>Genealogy Connection</h1>
@@ -47,7 +51,7 @@
       </div>
     </footer>
   </body>
-  <% include ../views/partials/scripts.ejs %>
+  {% include scripts.html %}
   <script>
     var myNav = document.getElementById('nav');
     myNav.classList.remove("navbar-default");

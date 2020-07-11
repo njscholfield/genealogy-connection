@@ -1,7 +1,11 @@
+---
+title: Premium
+permalink: /premium/
+---
 <!DOCTYPE html>
 <html>
   <head>
-    <% include ../views/partials/header.ejs %>
+    {% include header.html %}
     <title>Premium | Genealogy Connection</title>
     <style>
       #free {
@@ -11,7 +15,7 @@
     </style>
   </head>
   <body>
-    <%- include('../views/partials/navbar.ejs', {user: user}) %>
+    {% include navbar.html %}
     <div class="jumbotron">
       <div class="container">
         <h1>Premium</h1>
@@ -79,6 +83,6 @@
         </div>
       </div>
     </div>
-    <% include ../views/partials/scripts.ejs %>
+    {% include scripts.html %}
   </body>
 </html>
